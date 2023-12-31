@@ -1,0 +1,128 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: white;
+    overflow: hidden;
+    -webkit-overflow-scrolling: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+section {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(rgba(0,0,0,0.9) 9%, black 9%);
+    background-size: 30px 30px;
+}
+
+.wrapper {
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s ease;
+}
+
+.wrapper:active {
+    transform: scale(.85) translate(-50%, -50%);
+}
+.wrapper:active img {
+    transform: scale(1.1);
+}
+
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.center h1 {
+    font-size: 9rem;
+    margin: 0;
+    background-image: linear-gradient(45deg, magenta 25%, blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+
+    transform: scale(0);
+    animation: fadeIn .6s ease;
+    animation-fill-mode: forwards;
+}
+
+.center h2 {
+    font-size: 3rem;
+    margin-top: -1rem;
+    transform: scale(0);
+    animation: fadeIn .6s ease;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+}
+
+.images {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.column {
+    margin: 0 30px;
+    margin-top: 7vh;
+}
+.column:nth-child(odd) {
+    margin-top: -7vh;
+}
+
+.image {
+    width: 300px;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 1rem;
+    margin: 5vh 0;
+    transform: scale(0);
+    transition: transform .8s ease;
+    animation: fadeIn .8s ease;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.image:nth-child(odd) {
+    animation-delay: 1.2s;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: all .6s ease;
+}
+
+.space {
+    height: 500px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
